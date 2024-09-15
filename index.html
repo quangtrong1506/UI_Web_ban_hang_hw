@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trang chủ</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="./public/fontawesome-free-6.6.0-web/css/all.min.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body>
+        <!-- header -->
+        <div class="py-3 px-6 shadow">
+            <div class="flex justify-between items-center h-full flex-wrap">
+                <!-- logo -->
+                <div class="h-[70px] max-lg:w-full flex justify-center items-center">
+                    <img class="max-lg:w-full object-cover max-w-48" src="./public/images/logo.jpg" alt="..." />
+                </div>
+                <!-- search -->
+                <div class="max-lg:flex-1 relative mt-2">
+                    <input
+                        class="max-lg:w-full border p-2 pr-8 min-w-[400px] text-main focus-visible:outline-none border-main rounded-lg"
+                        type="text"
+                        placeholder="Tìm kiếm"
+                    />
+                    <div class="absolute right-2 top-2">
+                        <i class="fa-solid fa-magnifying-glass text-main"></i>
+                    </div>
+                </div>
+                <!-- link -->
+                <div class="max-md:hidden flex gap-2 mt-2 ml-2">
+                    <a
+                        href="/cart"
+                        class="flex gap-1 items-center border rounded-lg p-2 cursor-pointer border-black/30 hover:border-main/60 hover:text-main"
+                    >
+                        <span><i class="fa-solid fa-cart-shopping"></i></span>
+                        <span>Giỏ hàng</span>
+                    </a>
+                    <a
+                        href="/login"
+                        class="flex gap-1 items-center border rounded-lg p-2 cursor-pointer border-black/30 hover:border-main/60 hover:text-main"
+                    >
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span>Đăng nhập</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- nav -->
+        <div class="px-6 flex justify-between">
+            <div class="w-1/3 lg:w-1/4 relative">
+                <div
+                    id="category-btn"
+                    class="font-bold text-main uppercase py-3 px-3 w-full border flex justify-between items-center cursor-pointer"
+                >
+                    <div>Danh mục sản phẩm</div>
+                    <!-- <div>
+                        <i class="fa-solid fa-bars"></i>
+                    </div> -->
+                </div>
+                <div id="category-list" class="flex-col flex">
+                    <a class="py-2 px-3 border border-t-0" href="#">Đồ trang trí</a>
+                    <a class="py-2 px-3 border border-t-0" href="#">Thiết bị điện tử</a>
+                    <a class="py-2 px-3 border border-t-0" href="#">Học tập</a>
+                    <a class="py-2 px-3 border border-t-0" href="#">Đồ trang trí 1</a>
+                    <a class="py-2 px-3 border border-t-0" href="#">Đồ trang trí 2</a>
+                    <a class="py-2 px-3 border border-t-0" href="#">Đồ trang trí 3</a>
+                </div>
+            </div>
+            <div class="flex mt-1 flex-col w-3/4">
+                <div class="flex h-10 justify-end text-lg">
+                    <a
+                        class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                        href="/"
+                        >Trang chủ</a
+                    >
+                    <a
+                        class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                        href="#"
+                        >Sản phẩm</a
+                    >
+                    <a
+                        class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                        href="#"
+                        >Giới thiệu</a
+                    >
+                    <!-- <a
+                        class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                        href="#"
+                        >Tin tức</a
+                    > -->
+                    <a
+                        class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                        href="#"
+                        >Liên hệ</a
+                    >
+                    <!-- <a
+                        class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                        href="#"
+                        >Đăng ký thành viên</a
+                    > -->
+                </div>
+                <!-- Slider main container -->
+                <div class="mt-1 overflow-hidden w-full">
+                    <div class="swiper w-full [&_.swiper-pagination-bullet-active]:bg-main">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <img src="./public/images/slideshow-1.jpg" alt="" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./public/images/slideshow-2.jpg" alt="" />
+                            </div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev text-main"></div>
+                        <div class="swiper-button-next text-main"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="my-6 grid grid-cols-3 px-6">
+            <div class="flex items-center gap-4">
+                <div class="text-3xl"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="flex flex-col">
+                    <div class="font-bold text-lg">Miễn phí vận chuyển</div>
+                    <div class="text-sm text-black/55">Dành cho đơn hàng hơn 1.000.000đ</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-3xl"><i class="fa-solid fa-gift"></i></div>
+                <div class="flex flex-col">
+                    <div class="font-bold text-lg">Chiết khấu 20%</div>
+                    <div class="text-sm text-black/55">Dành cho đơn hàng có giá trị từ 2.000.000đ</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-3xl"><i class="fa-solid fa-phone"></i></div>
+                <div class="flex flex-col">
+                    <div class="font-bold text-lg">Hỗ trợ 24/7</div>
+                    <div class="text-sm text-black/55">Nếu bạn cần hỗ trợ gọi ngay</div>
+                </div>
+            </div>
+        </div>
+        <div class="my-6 px-6">
+            <div>
+                <div class="border-b my-2 text-main font-semibold uppercase">Đồ gia dụng</div>
+                <div class="grid grid-cols-5 gap-3">
+                    <div class="border border-black/10 rounded-lg overflow-hidden">
+                        <div class="relative w-full max-h-[260px] overflow-hidden [&_.add-to-cart]:hover:flex">
+                            <a class="w-full" href="/products/id">
+                                <img class="w-full" src="./public/images/ke-sach-3.jpg" alt="" />
+                            </a>
+                            <div
+                                class="add-to-cart hidden absolute bottom-5 h-8 bg-main text-white justify-center items-center rounded-full p-2 left-1/2 -translate-x-1/2 cursor-pointer"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="ml-2 text-sm text-nowrap">Thêm vào giỏ hàng</span>
+                            </div>
+                        </div>
+                        <a class="text-main hover:underline text-center line-clamp-2" href="/products/id"
+                            >Kệ sách 3 tầng</a
+                        >
+                        <div class="flex gap-2 justify-center my-1">
+                            <span class="text-to-string-vnd text-red-500">250000</span>
+                        </div>
+                    </div>
+                    <div class="border border-black/10 rounded-lg overflow-hidden">
+                        <div class="relative w-full max-h-[260px] overflow-hidden [&_.add-to-cart]:hover:flex">
+                            <a class="w-full" href="/products/id">
+                                <img class="w-full" src="./public/images/ke-sach-3.jpg" alt="" />
+                            </a>
+                            <div
+                                class="add-to-cart hidden absolute bottom-5 h-8 bg-main text-white justify-center items-center rounded-full p-2 left-1/2 -translate-x-1/2 cursor-pointer"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="ml-2 text-sm text-nowrap">Thêm vào giỏ hàng</span>
+                            </div>
+                        </div>
+                        <a class="text-main hover:underline text-center line-clamp-2" href="/products/id"
+                            >Kệ sách 3 tầng</a
+                        >
+                        <div class="flex gap-2 justify-center my-1">
+                            <span class="text-to-string-vnd text-red-500">250000</span>
+                        </div>
+                    </div>
+                    <div class="border border-black/10 rounded-lg overflow-hidden">
+                        <div class="relative w-full max-h-[260px] overflow-hidden [&_.add-to-cart]:hover:flex">
+                            <a class="w-full" href="/products/id">
+                                <img class="w-full" src="./public/images/ke-sach-3.jpg" alt="" />
+                            </a>
+                            <div
+                                class="add-to-cart hidden absolute bottom-5 h-8 bg-main text-white justify-center items-center rounded-full p-2 left-1/2 -translate-x-1/2 cursor-pointer"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="ml-2 text-sm text-nowrap">Thêm vào giỏ hàng</span>
+                            </div>
+                        </div>
+                        <a class="text-main hover:underline text-center line-clamp-2" href="/products/id"
+                            >Kệ sách 3 tầng</a
+                        >
+                        <div class="flex gap-2 justify-center my-1">
+                            <span class="text-to-string-vnd text-red-500">250000</span>
+                        </div>
+                    </div>
+                    <div class="border border-black/10 rounded-lg overflow-hidden">
+                        <div class="relative w-full max-h-[260px] overflow-hidden [&_.add-to-cart]:hover:flex">
+                            <a class="w-full" href="/products/id">
+                                <img class="w-full" src="./public/images/ke-sach-3.jpg" alt="" />
+                            </a>
+                            <div
+                                class="add-to-cart hidden absolute bottom-5 h-8 bg-main text-white justify-center items-center rounded-full p-2 left-1/2 -translate-x-1/2 cursor-pointer"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="ml-2 text-sm text-nowrap">Thêm vào giỏ hàng</span>
+                            </div>
+                        </div>
+                        <a class="text-main hover:underline text-center line-clamp-2" href="/products/id"
+                            >Kệ sách 3 tầng</a
+                        >
+                        <div class="flex gap-2 justify-center my-1">
+                            <span class="text-to-string-vnd text-red-500">250000</span>
+                        </div>
+                    </div>
+                    <div class="border border-black/10 rounded-lg overflow-hidden">
+                        <div class="relative w-full max-h-[260px] overflow-hidden [&_.add-to-cart]:hover:flex">
+                            <a class="w-full" href="/products/id">
+                                <img class="w-full" src="./public/images/ke-sach-3.jpg" alt="" />
+                            </a>
+                            <div
+                                class="add-to-cart hidden absolute bottom-5 h-8 bg-main text-white justify-center items-center rounded-full p-2 left-1/2 -translate-x-1/2 cursor-pointer"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span class="ml-2 text-sm text-nowrap">Thêm vào giỏ hàng</span>
+                            </div>
+                        </div>
+                        <a class="text-main hover:underline text-center line-clamp-2" href="/products/id"
+                            >Kệ sách 3 tầng</a
+                        >
+                        <div class="flex gap-2 justify-center my-1">
+                            <span class="text-to-string-vnd text-red-500">250000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="grid grid-cols-4 px-6 py-6 gap-3 border-t">
+            <div class="flex flex-col">
+                <img src="./public//images/logo.jpg" alt="..." />
+                <span class="text-sm text-black/55">
+                    Green Construction là giao diện có khả năng tùy biến cao để có thể phù hợp với mọi ngành hàng
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <b>THÔNG TIN LIÊN HỆ</b>
+                <span class="text-black/55 font-bold"> Công ty CP dịch vụ Công nghệ Việt Nam</span>
+                <span class="text-black/55 text-sm">
+                    Địa chỉ: Số 9, Hạ Đình, Thanh xuân, HN Hotline: 0981 598 298 || 0985 998 798 Email: info@vntsc.vn -
+                    https://vntsc.vn
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <b>Chính sách</b>
+                <a href="#">Chính sách thanh toán</a>
+                <a href="#">Chính sách giao dịch</a>
+            </div>
+            <div class="flex flex-col">
+                <b>Điều khoản</b>
+                <a href="#">Điều khoản sử dụng</a>
+            </div>
+        </div>
+        <!-- script -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
