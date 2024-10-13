@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Giỏ hàng</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="./public/fontawesome-free-6.6.0-web/css/all.min.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body>
+        <!-- header -->
+        <div class="py-3 px-6 shadow">
+            <div class="flex justify-between items-center h-full flex-wrap relative">
+                <!-- logo -->
+                <div class="h-[70px] max-lg:w-full flex justify-center items-center">
+                    <img class="max-lg:w-full object-cover max-w-48" src="./public/images/logo.jpg" alt="..." />
+                </div>
+                <!-- search -->
+                <div class="max-lg:flex-1 relative mt-2">
+                    <input
+                        class="max-lg:w-full border p-2 pr-8 min-w-[400px] text-main focus-visible:outline-none border-main rounded-lg"
+                        type="text"
+                        placeholder="Tìm kiếm"
+                    />
+                    <div class="absolute right-2 top-2">
+                        <i class="fa-solid fa-magnifying-glass text-main"></i>
+                    </div>
+                </div>
+                <!-- link -->
+                <div class="max-md:hidden flex gap-2 mt-2 ml-2">
+                    <a
+                        href="/cart"
+                        class="flex gap-1 items-center border rounded-lg p-2 cursor-pointer border-black/30 hover:border-main/60 hover:text-main"
+                    >
+                        <span><i class="fa-solid fa-cart-shopping"></i></span>
+                        <span>Giỏ hàng</span>
+                    </a>
+                    <a
+                        href="/login"
+                        class="flex gap-1 items-center border rounded-lg p-2 cursor-pointer border-black/30 hover:border-main/60 hover:text-main"
+                    >
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span>Đăng nhập</span>
+                    </a>
+                </div>
+                <div class="absolute flex top-5 right-2 sm:hidden">
+                    <div class="p-2 cursor-pointer">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div class="p-2 cursor-pointer" onclick="handleNavClick(true)">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- mini -->
+        <div
+            id="nav-mini"
+            class="fixed top-0 right-0 translate-x-full bg-white w-[320px] h-screen z-50 shadow-md transition-all ease-in-out duration-300"
+        >
+            <div class="flex flex-col text-lg">
+                <div class="h-[70px] max-lg:w-full flex justify-center items-center">
+                    <img class="max-lg:w-full object-cover max-w-48" src="./public/images/logo.jpg" alt="..." />
+                </div>
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="/"
+                    >Trang chủ</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Sản phẩm</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Giới thiệu</a
+                >
+                <!-- <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Tin tức</a
+                > -->
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Liên hệ</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="/register"
+                    >Đăng ký thành viên</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="/login"
+                    >Đăng nhập</a
+                >
+            </div>
+        </div>
+        <div
+            id="nav-mini-overlay"
+            class="fixed top-0 left-0 h-screen w-screen bg-black/60 z-10 hidden"
+            onclick="handleNavClick(false)"
+        ></div>
+        <div class="min-h-screen mx-6 my-6">
+            <h2 class="text-xl font-bold text-center mb-3">Giỏ hàng của bạn</h2>
+            <div class="text-center w-full mt-12 hidden">
+                <div>Chưa có sản phẩm nào trong giỏ hàng</div>
+                <a class="text-main hover:underline" href="/index.html">Tiếp tục mua sắm</a>
+            </div>
+            <div>
+                <div class="relative overflow-x-auto">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">Sản phẩm</th>
+                                <th scope="col" class="px-6 py-3">Số lượng</th>
+                                <th scope="col" class="px-6 py-3">Đơn giá</th>
+                                <th scope="col" class="px-6 py-3">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <th
+                                    scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                >
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4">12</td>
+                                <td class="px-6 py-4">5000000</td>
+                                <td class="px-6 py-4">$91939199</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-6 py-4"></td>
+                                <td class="px-6 py-4"></td>
+                                <td class="px-6 py-4 text-right">Tổng tiền hàng:</td>
+                                <td class="font-bold text-red-500 px-6 py-4">$1000000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="flex w-full justify-end">
+                        <div class="flex flex-col mr-32 gap-2">
+                            <button class="px-3 py-2 bg-main text-white rounded-lg">Tiến hành đặt hàng</button>
+                            <button class="text-blue-700">Tiếp tục mua sắm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="grid grid-cols-1 md:grid-cols-4 px-6 py-6 gap-3 border-t">
+            <div class="flex flex-col">
+                <img src="./public//images/logo.jpg" alt="..." />
+                <span class="text-sm text-black/55">
+                    Green Construction là giao diện có khả năng tùy biến cao để có thể phù hợp với mọi ngành hàng
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <b>THÔNG TIN LIÊN HỆ</b>
+                <span class="text-black/55 font-bold"> Công ty CP dịch vụ Công nghệ Việt Nam</span>
+                <span class="text-black/55 text-sm">
+                    Địa chỉ: Số 9, Hạ Đình, Thanh xuân, HN Hotline: 0981 598 298 || 0985 998 798 Email: info@vntsc.vn -
+                    https://vntsc.vn
+                </span>
+            </div>
+            <div class="flex flex-col">
+                <b>Chính sách</b>
+                <a href="#">Chính sách thanh toán</a>
+                <a href="#">Chính sách giao dịch</a>
+            </div>
+            <div class="flex flex-col">
+                <b>Điều khoản</b>
+                <a href="#">Điều khoản sử dụng</a>
+            </div>
+        </div>
+        <!-- script -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script src="./main.js"></script>
+    </body>
+</html>

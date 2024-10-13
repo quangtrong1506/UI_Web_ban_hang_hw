@@ -12,7 +12,7 @@
     <body>
         <!-- header -->
         <div class="py-3 px-6 shadow">
-            <div class="flex justify-between items-center h-full flex-wrap">
+            <div class="flex justify-between items-center h-full flex-wrap relative">
                 <!-- logo -->
                 <div class="h-[70px] max-lg:w-full flex justify-center items-center">
                     <img class="max-lg:w-full object-cover max-w-48" src="./public/images/logo.jpg" alt="..." />
@@ -47,21 +47,30 @@
                         <span>Đăng nhập</span>
                     </a>
                 </div>
+                <div class="absolute flex top-5 right-2 sm:hidden">
+                    <div class="p-2 cursor-pointer">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div class="p-2 cursor-pointer" onclick="handleNavClick(true)">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- nav -->
         <div class="px-6 flex justify-between">
-            <div class="w-1/3 lg:w-1/4 relative">
+            <div class="w-full md:w-1/3 lg:w-1/4 relative">
                 <div
                     id="category-btn"
                     class="font-bold text-main uppercase py-3 px-3 w-full border flex justify-between items-center cursor-pointer"
+                    onclick="openHomeCategorySelector()"
                 >
                     <div>Danh mục sản phẩm</div>
-                    <!-- <div>
+                    <div class="md:hidden">
                         <i class="fa-solid fa-bars"></i>
-                    </div> -->
+                    </div>
                 </div>
-                <div id="category-list" class="flex-col flex">
+                <div id="home-category-selector" class="flex-col flex hidden">
                     <a class="py-2 px-3 border border-t-0" href="#">Đồ trang trí</a>
                     <a class="py-2 px-3 border border-t-0" href="#">Thiết bị điện tử</a>
                     <a class="py-2 px-3 border border-t-0" href="#">Học tập</a>
@@ -70,7 +79,7 @@
                     <a class="py-2 px-3 border border-t-0" href="#">Đồ trang trí 3</a>
                 </div>
             </div>
-            <div class="flex mt-1 flex-col w-3/4">
+            <div class="flex mt-1 flex-col w-3/4 max-md:hidden">
                 <div class="flex h-10 justify-end text-lg">
                     <a
                         class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
@@ -126,26 +135,77 @@
                 </div>
             </div>
         </div>
+        <!-- mini -->
+        <div
+            id="nav-mini"
+            class="fixed top-0 right-0 translate-x-full bg-white w-[320px] h-screen z-50 shadow-md transition-all ease-in-out duration-300"
+        >
+            <div class="flex flex-col text-lg">
+                <div class="h-[70px] max-lg:w-full flex justify-center items-center">
+                    <img class="max-lg:w-full object-cover max-w-48" src="./public/images/logo.jpg" alt="..." />
+                </div>
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="/"
+                    >Trang chủ</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Sản phẩm</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Giới thiệu</a
+                >
+                <!-- <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Tin tức</a
+                > -->
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="#"
+                    >Liên hệ</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="/register"
+                    >Đăng ký thành viên</a
+                >
+                <a
+                    class="active:bg-main active:text-white hover:bg-main hover:text-white font-bold py-2 p-3 rounded-md"
+                    href="/login"
+                    >Đăng nhập</a
+                >
+            </div>
+        </div>
+        <div
+            id="nav-mini-overlay"
+            class="fixed top-0 left-0 h-screen w-screen bg-black/60 z-10 hidden"
+            onclick="handleNavClick(false)"
+        ></div>
         <!-- content -->
-        <div class="my-6 grid grid-cols-3 px-6">
+        <div class="my-6 grid grid-cols-1 gap-4 sm:gap-0 sm:grid-cols-3 px-6">
             <div class="flex items-center gap-4">
                 <div class="text-3xl"><i class="fa-solid fa-truck-fast"></i></div>
                 <div class="flex flex-col">
-                    <div class="font-bold text-lg">Miễn phí vận chuyển</div>
+                    <div class="font-bold text-base md:text-lg">Miễn phí vận chuyển</div>
                     <div class="text-sm text-black/55">Dành cho đơn hàng hơn 1.000.000đ</div>
                 </div>
             </div>
             <div class="flex items-center gap-4">
                 <div class="text-3xl"><i class="fa-solid fa-gift"></i></div>
                 <div class="flex flex-col">
-                    <div class="font-bold text-lg">Chiết khấu 20%</div>
+                    <div class="font-bold text-base md:text-lg">Chiết khấu 20%</div>
                     <div class="text-sm text-black/55">Dành cho đơn hàng có giá trị từ 2.000.000đ</div>
                 </div>
             </div>
             <div class="flex items-center gap-4">
                 <div class="text-3xl"><i class="fa-solid fa-phone"></i></div>
                 <div class="flex flex-col">
-                    <div class="font-bold text-lg">Hỗ trợ 24/7</div>
+                    <div class="font-bold text-base md:text-lg">Hỗ trợ 24/7</div>
                     <div class="text-sm text-black/55">Nếu bạn cần hỗ trợ gọi ngay</div>
                 </div>
             </div>
@@ -153,7 +213,7 @@
         <div class="my-6 px-6">
             <div>
                 <div class="border-b my-2 text-main font-semibold uppercase">Đồ gia dụng</div>
-                <div class="grid grid-cols-5 gap-3">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                     <div class="border border-black/10 rounded-lg overflow-hidden">
                         <div class="relative w-full max-h-[260px] overflow-hidden [&_.add-to-cart]:hover:flex">
                             <a class="w-full" href="/products/id">
@@ -254,7 +314,7 @@
         </div>
 
         <!-- footer -->
-        <div class="grid grid-cols-4 px-6 py-6 gap-3 border-t">
+        <div class="grid grid-cols-1 md:grid-cols-4 px-6 py-6 gap-3 border-t">
             <div class="flex flex-col">
                 <img src="./public//images/logo.jpg" alt="..." />
                 <span class="text-sm text-black/55">

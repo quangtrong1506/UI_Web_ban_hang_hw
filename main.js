@@ -37,3 +37,22 @@ window.addEventListener('load', () => {
         element.textContent = formatToVND(element.textContent);
     });
 });
+
+function openHomeCategorySelector() {
+    const elmt = document.getElementById('home-category-selector');
+    if (elmt) {
+        elmt.classList.toggle('hidden');
+    }
+}
+
+function handleNavClick(isOpen) {
+    const nav = document.getElementById('nav-mini');
+    const overlay = document.getElementById('nav-mini-overlay');
+    if (isOpen) {
+        nav.classList.add('translate-x-0');
+        overlay.classList.remove('hidden');
+    } else {
+        nav.classList.remove('translate-x-0');
+        overlay.classList.add('hidden');
+    }
+}
